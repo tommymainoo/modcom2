@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -35,7 +34,6 @@ const SignUp = () => {
 
       setLoading("");
       setSuccess(response.data.message || "Sign-up successful!");
-      // Optionally redirect to sign-in page
       setTimeout(() => navigate("/signin"), 1500);
     } catch (err) {
       setLoading("");
@@ -44,10 +42,29 @@ const SignUp = () => {
   };
 
   return (
-    <div className="signin-container">
-      <div className="signin-card shadow">
-        <h2 className="signin-title">Join TM Style Housing</h2>
-        <p className="signin-subtitle">Create your account to get started</p>
+    <div
+      className="signin-container"
+      style={{
+        padding: "2rem",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+      }}
+    >
+      <div style={{ width: "100%", maxWidth: "400px" }}>
+        <h2
+          className="signin-title"
+          style={{ textAlign: "center", color: "#080808ff" }}
+        >
+          Join TM Style Housing
+        </h2>
+        <p
+          className="signin-subtitle"
+          style={{ textAlign: "center", color: "#131212ff", marginBottom: "1.5rem" }}
+        >
+          Create your account to get started
+        </p>
 
         <form onSubmit={submit}>
           {success && <div className="alert alert-success">{success}</div>}
@@ -60,7 +77,15 @@ const SignUp = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            className="form-input"
+            style={{
+              width: "100%",
+              padding: "12px",
+              marginBottom: "1rem",
+              backgroundColor: "rgba(255, 255, 255, 0.05)",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              color: "#fff",
+            }}
           />
 
           <input
@@ -69,7 +94,15 @@ const SignUp = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="form-input"
+            style={{
+              width: "100%",
+              padding: "12px",
+              marginBottom: "1rem",
+              backgroundColor: "rgba(255, 255, 255, 0.05)",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              color: "#fff",
+            }}
           />
 
           <input
@@ -78,7 +111,15 @@ const SignUp = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="form-input"
+            style={{
+              width: "100%",
+              padding: "12px",
+              marginBottom: "1rem",
+              backgroundColor: "rgba(255, 255, 255, 0.05)",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              color: "#fff",
+            }}
           />
 
           <input
@@ -87,18 +128,43 @@ const SignUp = () => {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
-            className="form-input"
+            style={{
+              width: "100%",
+              padding: "12px",
+              marginBottom: "1.5rem",
+              backgroundColor: "rgba(255, 255, 255, 0.05)",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              color: "#fff",
+            }}
           />
 
-          <button type="submit" className="btn btn-primary w-100">
+          <button
+            type="submit"
+            style={{
+              width: "100%",
+              padding: "12px",
+              backgroundColor: "#007bff",
+              color: "#fff",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
             Sign Up
           </button>
         </form>
 
-        <div className="signup-link">
+        <div
+          className="signup-link"
+          style={{ marginTop: "1rem", textAlign: "center", color: "#ccc" }}
+        >
           <p>
             Already have an account?{" "}
-            <Link to="/signin" className="link">
+            <Link
+              to="/signin"
+              style={{ color: "#00acee", textDecoration: "none" }}
+            >
               Sign In
             </Link>
           </p>
